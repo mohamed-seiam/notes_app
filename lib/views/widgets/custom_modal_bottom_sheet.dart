@@ -10,9 +10,11 @@ class CustomBottomSheet extends StatelessWidget {
     return  Padding(
       padding:const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
-        children: [
+        children: const [
           SizedBox(height: 32,),
-          CustomTextField(),
+          CustomTextField(hintText: 'Title',),
+          SizedBox(height: 18.0,),
+          CustomTextField(hintText: 'Content',mxLines: 5,),
         ],
       ),
     );
