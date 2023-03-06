@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:notes_app/views/widgets/custom_modal_bottom_sheet.dart';
 import 'package:notes_app/views/widgets/notes_view_body.dart';
 
 class NotesView extends StatelessWidget {
@@ -6,8 +8,19 @@ class NotesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: NotesViewBody(),
+    return  Scaffold(
+      floatingActionButton: FloatingActionButton(
+          onPressed: ()
+          {
+            showModalBottomSheet(context: context, builder:(context)
+            {
+              return const CustomBottomSheet();
+            });
+          },
+        child:const Icon(FontAwesomeIcons.plus),
+      ),
+      body: const NotesViewBody(),
     );
   }
 }
+
