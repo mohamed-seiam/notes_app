@@ -4,6 +4,7 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:notes_app/constant.dart';
 import 'package:notes_app/cubits/add_note_cubit/note_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
+import 'package:notes_app/simple_bloc_observe.dart';
 import 'package:notes_app/views/notes_view.dart';
 
 void main() async {
@@ -11,6 +12,7 @@ void main() async {
   await Hive.openBox(kNoteBox);
   Hive.registerAdapter(NoteModelAdapter());
   runApp(const NotesApp());
+  Bloc.observer = SimpleBlocObserve();
 }
 
 class NotesApp extends StatelessWidget {
