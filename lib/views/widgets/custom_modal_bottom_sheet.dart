@@ -10,22 +10,25 @@ class CustomBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: MediaQuery.of(context).viewInsets,
-      child: BlocConsumer<AddNotesCubit, AddNoteStates>(
-        listener: (context, state) {
-          if (state is AddNoteFailureState) {
-            print('Failed ${state.error}');
-          }
-          if (state is AddNoteSuccessState) {
-            Navigator.pop(context);
-          }
-        },
-        builder: (context, state) {
-          return ModalProgressHUD(
-              inAsyncCall: state is AddNoteLoadingState ? true : false,
-              child:const SingleChildScrollView(child:  AddNoteForm()));
-        },
+    return BlocProvider(
+      create: (context) => AddNotesCubit(),
+      child: Padding(
+        padding: MediaQuery.of(context).viewInsets,
+        child: BlocConsumer<AddNotesCubit, AddNoteStates>(
+          listener: (context, state) {
+            if (state is AddNoteFailureState) {
+              print('Failed ${state.error}');
+            }
+            if (state is AddNoteSuccessState) {
+              Navigator.pop(context);
+            }
+          },
+          builder: (context, state) {
+            return ModalProgressHUD(
+                inAsyncCall: state is AddNoteLoadingState ? true : false,
+                child: const SingleChildScrollView(child: AddNoteForm()));
+          },
+        ),
       ),
     );
   }
