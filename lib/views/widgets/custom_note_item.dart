@@ -45,7 +45,9 @@ final NoteModel noteModel ;
                 ),
               ),
               trailing: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  noteModel.delete();
+                },
                 icon: const Icon(
                   FontAwesomeIcons.trash,
                   size: 24.0,
