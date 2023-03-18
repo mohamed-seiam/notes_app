@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/cubits/get_notes_cubit/get_notes_cubit.dart';
 import 'package:notes_app/views/widgets/custom_appbar.dart';
 import 'package:notes_app/views/widgets/custom_text_field.dart';
+import 'package:notes_app/views/widgets/edit_note_color_list.dart';
 
 import '../models/note_model.dart';
 
@@ -51,9 +52,16 @@ class _EditViewBodyState extends State<EditViewBody> {
                  content = value;
                },
              ),
+            const SizedBox(height: 30,),
+
+            EditViewBodyColorList(note: widget.noteModel,),
           ],
         ),
       ),
     );
   }
 }
+
+
+
+
