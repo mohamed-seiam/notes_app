@@ -15,7 +15,7 @@ final NoteModel noteModel ;
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) {
-            return const EditViewBody();
+            return  EditViewBody(noteModel: noteModel,);
           }),
         );
       },
