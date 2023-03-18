@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:notes_app/cubits/get_notes_cubit/get_notes_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/views/edit_view_body.dart';
 
@@ -47,6 +49,7 @@ final NoteModel noteModel ;
               trailing: IconButton(
                 onPressed: () {
                   noteModel.delete();
+                  BlocProvider.of<GetNotesCubit>(context).getNotes();
                 },
                 icon: const Icon(
                   FontAwesomeIcons.trash,
